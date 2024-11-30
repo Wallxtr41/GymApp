@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController;
     private lateinit var fragControl: MainFragmentDirections;
 
-
+    private lateinit var mainButton: Button;
     private lateinit var profileButton: Button;
     private lateinit var achievementButton: Button;
     private var currentFragment: FragmentName = FragmentName.Main;
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         fragControl = MainFragmentDirections(navController)
 
+        mainButton = findViewById(R.id.mainButton);
         profileButton = findViewById(R.id.profileButton);
         achievementButton = findViewById(R.id.achievementButton);
 
@@ -44,6 +45,10 @@ class MainActivity : AppCompatActivity() {
         achievementButton.setOnClickListener {
             fragControl.navigateToDestination(currentFragment, FragmentName.Achievement);
             currentFragment = FragmentName.Achievement;
+        }
+        mainButton.setOnClickListener {
+            fragControl.navigateToDestination(currentFragment, FragmentName.Main);
+            currentFragment = FragmentName.Main;
         }
 
     }

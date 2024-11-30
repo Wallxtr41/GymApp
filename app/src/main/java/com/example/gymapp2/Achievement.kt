@@ -4,5 +4,6 @@ data class Achievement(
     val category: String,
     val name: String,
     val description: String,
-    val status: String
+    val status: String,
+    val imageResId: Int
 )

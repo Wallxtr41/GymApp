@@ -15,7 +15,7 @@ class AchievementViewModel(context: Context) : ViewModel() {
 
     // Dummy game data
     private val dummyAchievement = Achievement(
-        "Rest","Run","Desc","Pending"
+        "Rest","Run","Desc","Pending",R.drawable.gym_image
     )
 
     // Initialize game data

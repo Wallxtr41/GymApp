@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -12,31 +13,23 @@ import androidx.recyclerview.widget.RecyclerView
 class MainFragment : Fragment() {
 
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: AchievementListAdapter
+    companion object {
+        fun newInstance() = AchievementFragment()
+    }
 
-    private val dummyGames: List<Achievement> = listOf(
-        Achievement("Workout","Run","Run 10 km","Pending"),
-        Achievement("Rest","Sleep","Sleep 7 hours","Done")
+    private val viewModel: AchievementViewModel by viewModels()
 
-    )
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
+        // TODO: Use the ViewModel
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return inflater.inflate(R.layout.fragment_main, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Initialize RecyclerView
-        recyclerView = view.findViewById(R.id.achievement_recycler_view)
-        adapter = AchievementListAdapter(dummyGames)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
     }
 
 }
