@@ -15,9 +15,6 @@
         <action
             android:id="@+id/action_mainFragment_to_achievementFragment"
             app:destination="@id/achievementFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_achievementDetailFragment"
-            app:destination="@id/achievementDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -42,14 +39,17 @@
         <action
             android:id="@+id/action_achievementFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_achievementFragment_to_achievementDetailFragment"
+            app:destination="@id/achievementDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/achievementDetailFragment"
         android:name="com.example.gymapp2.AchievementDetailFragment"
         android:label="AchievementDetailFragment"
         tools:layout="@layout/fragment_achievement_detail">
-        <action
-            android:id="@+id/action_achievementDetailFragment_to_mainFragment"
-            app:destination="@id/achievementDetailFragment" />
+
     </fragment>
+
+
 </navigation>

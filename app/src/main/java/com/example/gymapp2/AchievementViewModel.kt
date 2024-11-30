@@ -11,7 +11,7 @@ class AchievementViewModel(context: Context) : ViewModel() {
     private val resources: Resources = context.resources
 
     private val _achievement = MutableLiveData<Achievement>()
-    val game: LiveData<Achievement> = _achievement
+    val achievement: LiveData<Achievement> = _achievement
 
     // Dummy game data
     private val dummyAchievement = Achievement(

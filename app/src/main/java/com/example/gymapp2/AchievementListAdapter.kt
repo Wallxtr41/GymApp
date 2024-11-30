@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +16,7 @@ import com.bumptech.glide.Glide
 class AchievementListAdapter(var achievements: List<Achievement>) :
     RecyclerView.Adapter<AchievementListAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.item_achievement, parent, false)
         return ViewHolder(view)
@@ -41,6 +43,13 @@ class AchievementListAdapter(var achievements: List<Achievement>) :
 
         holder.itemView.setOnClickListener {
             // Handle item click event
+            val bundle = Bundle().apply {
+                putSerializable("achievement", achievement) // Ensure Achievement class implements Serializable
+            }
+
+            // Navigate to AchievementDetailFragment
+            it.findNavController().navigate(R.id.action_achievementFragment_to_achievementDetailFragment, bundle)
+
         }
     }
 
